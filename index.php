@@ -1,13 +1,17 @@
 <?php
+    include_once "./app/adms/lib/lib_clean_url.php";
+
     // Recebe a url
-    $url = filter_input(INPUT_GET, "url", FILTER_SANITIZE_URL);
+    $url = filter_input(INPUT_GET, "url", FILTER_SANITIZE_SPECIAL_CHARS);
 
     if($url == null){
         $url = "";
     }
 
+    $url_clear = cleanUrl($url);
+
     // Converte a string em array
-    $url_path = explode("/", $url);
+    $url_path = $url_clear ? preg_split("/\//", $url_clear) : [];
 
     if ((isset($url_path[0])) && (!empty($url_path[0]))) {
         $path_page = $url_path[0];

@@ -1,7 +1,9 @@
 <?php
     define("A1B2C3", true);
 
+    include_once "./config/config.php";
     include_once "./app/adms/lib/lib_clean_url.php";
+    include_once "./config/connection.php";
 
     // Recebe a url
     $url = filter_input(INPUT_GET, "url", FILTER_SANITIZE_SPECIAL_CHARS);

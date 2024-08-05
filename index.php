@@ -1,4 +1,6 @@
 <?php
+    define("A1B2C3", true);
+
     include_once "./app/adms/lib/lib_clean_url.php";
 
     // Recebe a url

@@ -1,0 +1,43 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Tempo de geração: 06/08/2024 às 17:27
+-- Versão do servidor: 8.3.0
+-- Versão do PHP: 8.3.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Banco de dados: `covre`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `adms_sits_users`
+--
+
+DROP TABLE IF EXISTS `adms_sits_users`;
+CREATE TABLE IF NOT EXISTS `adms_sits_users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `adms_sits_users`
+--
+
+INSERT INTO `adms_sits_users` (`id`, `name`, `created`, `modified`) VALUES
+(1, 'Ativo', '2024-08-05 21:10:29', NULL),
+(2, 'Inativo', '2024-08-05 21:10:29', NULL),
+(3, 'Aguardando confirmação', '2024-08-05 21:10:29', NULL),
+(4, 'Spam', '2024-08-05 21:10:29', NULL),
+(5, 'Descadastrado', '2024-08-05 21:10:29', NULL);
+COMMIT;

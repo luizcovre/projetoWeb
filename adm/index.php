@@ -1,4 +1,7 @@
 <?php
+    //limpa o buffer
+    ob_start();
+
     define("A1B2C3", true);
 
     include_once "./config/config.php";

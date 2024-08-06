@@ -23,6 +23,7 @@
         if($row_user['adms_sits_users_id'] != 1){
             echo "<p style='color: #f00;'>Erro: Usuário não encontrado</p>";
         } elseif(password_verify($dados['password'], $row_user['password'])){
+            unset($dados);
             $url_destino = URLADM . "/dashboard";
             header("Location: $url_destino");
         } else {
@@ -34,11 +35,25 @@
 ?>
 
 <form method="POST" action="">
+    <?php
+        $username = "";
+        if(isset($dados['username'])){
+            $username = $dados['username'];
+        }
+    ?>
     <label>Usuário</label>
-    <input type="text" name="username" placeholder="Digite o usuário ou e-mail" autofocus required><br><br>
+    <input type="text" name="username" placeholder="Digite o usuário ou e-mail" value="<?php echo $username; ?>"
+    autofocus required><br><br>
 
+    <?php
+        $password = "";
+        if(isset($dados['password'])){
+            $password = $dados['password'];
+        }
+    ?>
     <label>Senha</label>
-    <input type="password" name="password" placeholder="Digite a senha" required><br><br>
+    <input type="password" name="password" placeholder="Digite a senha" value="<?php echo $password; ?>"
+    required><br><br>
 
     <input type="submit" name="envioLogin" value="Acessar">
 </form>
